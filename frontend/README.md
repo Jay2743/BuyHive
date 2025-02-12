@@ -1,3 +1,8 @@
+Credentials
+mogodb mail jedor52656@citdaca.com
+username jedor52656
+pass SBP9BINGvsNK39e7
+pass Jay@12345
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
