@@ -36,12 +36,11 @@ const PlaceOrderScreen = () => {
         taxPrice:cart.taxPrice,
         shippingPrice: cart.shippingPrice,
         totalPrice: cart.totalPrice,
-      });
-      const info=await res.data;
-      console.log("Printing response call -->"+info);
-
-      // dispatch(clearCartItems());
-      // navigate(`/order/${res._id}`);
+      }).unwrap();
+     
+      
+      dispatch(clearCartItems());
+      navigate(`/order/${res._id}`);
     } catch (error) {
       toast.error(error.message);
     }

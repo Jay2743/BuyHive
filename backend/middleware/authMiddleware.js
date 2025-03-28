@@ -10,13 +10,11 @@ const protect = asyncHandler(async (req, res, next) => {
   // token =req.cookies.jwt;
   // token = req.headers.authorization?.split(" ")[1];
   token = req.cookies.jwt;
-  console.log("token val is " + token);
 
   if (token) {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       req.user = await User.findById(decoded.userId).select("-password");
-      console.log(req.user + " in auth");
       next();
     } catch (error) {
       console.error(error);
