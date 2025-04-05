@@ -27,18 +27,16 @@ const PlaceOrderScreen = () => {
 
   const placeOrderHandler = async () => {
     try {
-     
       const res = await createOrder({
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
-        taxPrice:cart.taxPrice,
         shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       }).unwrap();
-     
-      
+
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (error) {
@@ -55,7 +53,13 @@ const PlaceOrderScreen = () => {
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
-                <strong>Address 🏠 : </strong>
+                <strong>
+                  Address{" "}
+                  <span role="img" aria-label="house">
+                    🏠
+                  </span>{" "}
+                  :
+                </strong>
                 {cart.shippingAddress.address},{cart.shippingAddress.city}
                 {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
               </p>
@@ -90,8 +94,8 @@ const PlaceOrderScreen = () => {
                             </Link>
                           </Col>
                           <Col md={4}>
-                            {item.qty} X ${item.price} = $
-                            {item.qty * item.price}
+                            {item.qty} X ${item.price} = 
+                            $ {item.qty * item.price}
                           </Col>
                         </Row>
                       </ListGroup.Item>
@@ -111,28 +115,28 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items:</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>$ {cart.itemsPrice} </Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping:</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>$ {cart.shippingPrice} </Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Tax:</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>$ {cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
               <ListGroup.Item>
                 <Row>
                   <Col>Total:</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>$ {cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
 
@@ -147,9 +151,9 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Button
                   type="button"
-                  className="btn-block"
+                  className="btn-block placeOrderScreen_order--btn"
                   disabled={cart.cartItems.length === 0}
-                  onClick={() => placeOrderHandler()}
+                  onClick={placeOrderHandler}
                 >
                   Place Order
                 </Button>

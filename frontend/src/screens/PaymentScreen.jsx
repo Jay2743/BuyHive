@@ -40,7 +40,7 @@ const PaymentScreen = () => {
                 onChange={(e)=>setPaymentMethod(e.target.value)}></Form.Check>
                </Col>
             </Form.Group>
-            <Button type='submit' variant='primary'>Continue</Button>
+            <Button type='submit' className='paymentScreen_continue--btn'>Continue</Button>
 
         </Form>
     </FormContainer>

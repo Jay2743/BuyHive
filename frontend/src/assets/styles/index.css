@@ -1,7 +1,60 @@
 main {
     min-height: 80vh;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
   }
   
+  h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+  }
+  .navbar{
+    background-color: #007BFF;
+    height: auto;
+  }
+
+  .logo-container {
+    position: relative;
+    width: 100px; /* Adjust according to your logo size */
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .logo_Image {
+    max-width: 80px; 
+    max-height: 80px;
+  }
+  
+
+  .orbit {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #FF9800; 
+    border-radius: 50%;
+    top: 5; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbit-animation 2s linear infinite;
+  }
+
+  @keyframes orbit-animation {
+    0% {
+      transform: rotate(0deg) translateX(50px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(50px) rotate(-360deg);
+    }
+  }
+
+  .footer{
+    background: #007BFF;
+    height: 4vw;
+    color: white;
+  }
+
   .rating span {
     margin: 0.1rem;
   }
@@ -17,10 +70,10 @@ main {
   }
   
   .product-title {
-    height: 2.5em; /* Set a fixed height */
-    overflow: hidden; /* Hide overflow content */
-    text-overflow: ellipsis; /* Add ellipsis for long text */
-    white-space: nowrap; /* Prevent wrapping */
+    height: 2.5em;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap; 
   }
   
   table td,
@@ -51,3 +104,49 @@ main {
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
   }
+
+  .create_product--btn , .productScreen_Back--btn {
+    background-color: #FF9800;
+    color: black;
+  }
+  .profilescreen--order_details, .orderlist_details--btn ,.productScreen__form--btn {
+    background-color: #FF9800;
+  }
+  
+  .productScreen_addToCart--btn ,.cartScreen_cheackout--btn ,.shippingScreen_continue--btn{
+    background-color: #FF9800;
+  }
+
+  .paymentScreen_continue--btn,.placeOrderScreen_order--btn ,.profileScreen_update--btn {
+    background-color: #FF9800;
+  }
+
+  .productEditScreen_goBack--btn, .productEditScreen_update--btn{
+    background-color: #FF9800;
+  }
+
+  .productCreateScreen__goBack--btn,.productCreateScreen__create--btn{
+    background-color: #FF9800;
+  }
+  .userEditScreen__goBack--btn,.userEditScreen__update--btn , .orderScreen__markDeliver--btn{
+    background-color: #FF9800;
+  }
+
+
+  .table-container {
+    max-height: 400px; /* Set the max height for scrolling */
+    overflow-y: auto; /* Enable vertical scroll when data overflows */
+    overflow-x: auto; /* Enable horizontal scroll if needed */
+    border: 1px solid #ddd; /* Optional: Adds a slight border */
+    padding: 5px;
+  }
+  
+  /* Ensuring the table header remains visible */
+  .table-container thead {
+    position: sticky;
+    top: 0;
+    background: white; /* Keeps header visible while scrolling */
+    z-index: 10;
+  }
+
+ 

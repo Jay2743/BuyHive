@@ -4,7 +4,7 @@ import { Badge, Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import logo from "../assets/logo.png";
+import logo from "../assets/Buyhive.png";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 
@@ -29,34 +29,41 @@ export const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
+      <Navbar expand="md" collapseOnSelect className="navbar">
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <img src={logo} alt="BuyHive" />
-              BuyHive
+              <div className="logo-container">
+                <img src={logo} alt="BuyHive" className="logo_Image" />
+                <div className="orbit"></div> 
+              </div>
             </Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <LinkContainer to="/cart">
-                <Nav.Link>
-                  <FaShoppingCart /> Cart
-                  {cartItems.length > 0 && (
-                    <Badge pill bg="success" style={{ marginLeft: "5px" }}>
-                      {cartItems.reduce((a, c) => a + (c.qty || 0), 0)}
-                    </Badge>
-                  )}
-                </Nav.Link>
-              </LinkContainer>
+              {userInfo && (
+                <LinkContainer to="/cart">
+                  <Nav.Link>
+                    <FaShoppingCart /> Cart
+                    {cartItems.length > 0 && (
+                      <Badge pill bg="success" style={{ marginLeft: "5px" }}>
+                        {cartItems.reduce((a, c) => a + (c.qty || 0), 0)}
+                      </Badge>
+                    )}
+                  </Nav.Link>
+                </LinkContainer>
+              )}
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
-                  <LinkContainer to="/profile">
+                  <LinkContainer to="/profile" style={{ color: "black" }}>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>
+                  <NavDropdown.Item
+                    onClick={logoutHandler}
+                    style={{ color: "black" }}
+                  >
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -68,14 +75,23 @@ export const Header = () => {
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='adminmenu'>
-                  <LinkContainer to='/admin/productlist'>
+                <NavDropdown title="Admin" id="adminmenu">
+                  <LinkContainer
+                    to="/admin/productlist"
+                    style={{ color: "black" }}
+                  >
                     <NavDropdown.Item>Products</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/userlist'>
+                  <LinkContainer
+                    to="/admin/userlist"
+                    style={{ color: "black" }}
+                  >
                     <NavDropdown.Item>User</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/orderlist'>
+                  <LinkContainer
+                    to="/admin/orderlist"
+                    style={{ color: "black" }}
+                  >
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,7 +9,6 @@ import {
   Form,
   Button,
   Card,
-  ListGroupItem,
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
@@ -92,7 +92,7 @@ const CartScreen = () => {
                     </ListGroup.Item>
                     <ListGroup.Item type="button" className="btn-block" disabled={cartItems.length === 0}
                     onClick={()=>checkoutHandler()}>
-                        <Button>
+                        <Button className="cartScreen_cheackout--btn">
                             Proceed To Checkout
                         </Button>
                     </ListGroup.Item>
