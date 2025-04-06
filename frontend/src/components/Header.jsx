@@ -35,7 +35,7 @@ export const Header = () => {
             <Navbar.Brand>
               <div className="logo-container">
                 <img src={logo} alt="BuyHive" className="logo_Image" />
-                <div className="orbit"></div> 
+                <div className="orbit"></div>
               </div>
             </Navbar.Brand>
           </LinkContainer>

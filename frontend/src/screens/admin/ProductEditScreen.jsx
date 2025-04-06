@@ -84,7 +84,10 @@ const ProductEditScreen = () => {
 
   return (
     <>
-      <Link to="/admin/productlist" className="btn btn-light my-3 productEditScreen_goBack--btn">
+      <Link
+        to="/admin/productlist"
+        className="btn btn-light my-3 productEditScreen_goBack--btn"
+      >
         Go Back
       </Link>
       <FormContainer>
@@ -165,7 +168,11 @@ const ProductEditScreen = () => {
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Button type="submit" variant="primary" className="my-2 productEditScreen_update--btn">
+            <Button
+              type="submit"
+              variant="primary"
+              className="my-2 productEditScreen_update--btn"
+            >
               Update
             </Button>
           </Form>

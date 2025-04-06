@@ -1,10 +1,10 @@
 import React from "react";
-import { Table, Button } from 'react-bootstrap';
-import { FaTimes } from 'react-icons/fa';
-import Message from '../../components/Message';
-import Loader from '../../components/Loader';
-import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
-import { Link } from 'react-router-dom';
+import { Table, Button } from "react-bootstrap";
+import { FaTimes } from "react-icons/fa";
+import Message from "../../components/Message";
+import Loader from "../../components/Loader";
+import { useGetOrdersQuery } from "../../slices/ordersApiSlice";
+import { Link } from "react-router-dom";
 
 const OrderListScreen = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
@@ -15,11 +15,11 @@ const OrderListScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Message variant='danger'>
+        <Message variant="danger">
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -42,21 +42,21 @@ const OrderListScreen = () => {
                   {order.isPaid ? (
                     order.paidAt.substring(0, 10)
                   ) : (
-                    <FaTimes style={{ color: 'red' }} />
+                    <FaTimes style={{ color: "red" }} />
                   )}
                 </td>
                 <td>
                   {order.isDelivered ? (
                     order.deliveredAt.substring(0, 10)
                   ) : (
-                    <FaTimes style={{ color: 'red' }} />
+                    <FaTimes style={{ color: "red" }} />
                   )}
                 </td>
                 <td>
                   <Button
                     as={Link}
                     to={`/order/${order._id}`}
-                    className='btn-sm orderlist_details--btn'
+                    className="btn-sm orderlist_details--btn"
                   >
                     Details
                   </Button>

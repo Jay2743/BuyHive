@@ -50,7 +50,10 @@ const UserEditScreen = () => {
 
   return (
     <>
-      <Link to="/admin/userlist" className="btn btn-light my-3 userEditScreen__goBack--btn">
+      <Link
+        to="/admin/userlist"
+        className="btn btn-light my-3 userEditScreen__goBack--btn"
+      >
         Go Back
       </Link>
       <FormContainer>
@@ -88,7 +91,11 @@ const UserEditScreen = () => {
                 onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
-            <Button type="submit" variant="primary" className="my-2 userEditScreen__update--btn">
+            <Button
+              type="submit"
+              variant="primary"
+              className="my-2 userEditScreen__update--btn"
+            >
               Update
             </Button>
           </Form>

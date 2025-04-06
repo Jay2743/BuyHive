@@ -11,21 +11,31 @@ import SearchBox from "../components/SearchBox";
 import ProductCarousel from "../components/ProductCarousel";
 
 function HomeScreen() {
-  const {pageNumber,keyword} =useParams();
-  const { data, isLoading, error } =  useGetProductsQuery({keyword,pageNumber});
+  const { pageNumber, keyword } = useParams();
+  const { data, isLoading, error } = useGetProductsQuery({
+    keyword,
+    pageNumber,
+  });
 
-  
   return (
     <>
-      {!keyword ? <ProductCarousel/> :(  <Link to='/' className='btn btn-light mb-4'>Go Back</Link>)}
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to="/" className="btn btn-light mb-4">
+          Go Back
+        </Link>
+      )}
       {isLoading ? (
-        <Loader/>
+        <Loader />
       ) : error ? (
-        <Message variant='danger'>{error?.data?.message || error.error}</Message>
+        <Message variant="danger">
+          {error?.data?.message || error.error}
+        </Message>
       ) : (
         <>
-         <SearchBox className='my-4'/>
-        
+          <SearchBox className="my-4" />
+
           <h1>Latest Production</h1>
           <Row>
             {data.products.map((product) => {
@@ -35,8 +45,11 @@ function HomeScreen() {
                 </Col>
               );
             })}
-            <Paginate pages={data?.pages}
-            page={data?.page} keyword={keyword ? keyword:''}/>
+            <Paginate
+              pages={data?.pages}
+              page={data?.page}
+              keyword={keyword ? keyword : ""}
+            />
           </Row>
         </>
       )}

@@ -14,11 +14,15 @@ const ProductCarousel = () => {
       {error?.data?.message || error?.error || "An unexpected error occurred"}
     </Message>
   ) : (
-    <Carousel pause="hover" className="bg-primary mb-4 " style={{border:'1px solid black'}}>
+    <Carousel
+      pause="hover"
+      className="bg-primary mb-4 "
+      style={{ border: "1px solid black" }}
+    >
       {products.map((product) => (
-        <Carousel.Item key={product._id}  >
+        <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>
-            <Image src={product.image} alt={product.name} fluid  />
+            <Image src={product.image} alt={product.name} fluid />
             <Carousel.Caption className="carousel-captio">
               <h2>
                 {product.name} ({product.price} Rs)

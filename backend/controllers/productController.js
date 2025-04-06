@@ -40,8 +40,15 @@ const createProduct = asyncHandler(async (req, res) => {
   const { name, price, description, image, brand, category, countInStock } =
     req.body;
 
-  
-  if (!name || !price || !description || !image || !brand || !category || !countInStock) {
+  if (
+    !name ||
+    !price ||
+    !description ||
+    !image ||
+    !brand ||
+    !category ||
+    !countInStock
+  ) {
     res.status(400);
     throw new Error("Fields are Empty");
   }
@@ -64,8 +71,6 @@ const createProduct = asyncHandler(async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Server error while creating product" });
   }
-
-  
 });
 
 // @desc update a product

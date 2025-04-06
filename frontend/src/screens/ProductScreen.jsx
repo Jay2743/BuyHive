@@ -78,7 +78,7 @@ function ProductScreen() {
         </Message>
       ) : (
         <>
-        <Meta title={product.name}/>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />
@@ -117,7 +117,6 @@ function ProductScreen() {
                       <Col>Status:</Col>
                       <Col>
                         <strong>
-                          
                           {product.countInStock > 0
                             ? "In Stock"
                             : "Out of Stock"}

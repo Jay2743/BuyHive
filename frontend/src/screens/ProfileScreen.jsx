@@ -94,7 +94,11 @@ const ProfileScreen = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Button type="submit" variant="primary" className="my-2 profileScreen_update--btn">
+          <Button
+            type="submit"
+            variant="primary"
+            className="my-2 profileScreen_update--btn"
+          >
             Update
           </Button>
           {loadingUpdateProfile && <Loader />}
@@ -128,7 +132,7 @@ const ProfileScreen = () => {
                   <td>${order.totalPrice}</td>
                   <td>
                     {order.isPaid ? (
-                      order.paidAt.substring(0,10)
+                      order.paidAt.substring(0, 10)
                     ) : (
                       <FaTimes style={{ color: "red" }} />
                     )}

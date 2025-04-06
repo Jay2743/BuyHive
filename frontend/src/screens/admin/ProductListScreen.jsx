@@ -33,7 +33,6 @@ const ProductListScreen = () => {
     }
   };
 
-  
   return (
     <>
       <Row className="align-items-center">
@@ -49,7 +48,7 @@ const ProductListScreen = () => {
           </LinkContainer>
         </Col>
       </Row>
-      
+
       {lodingDelete && <Loader />}
       {isLoading ? (
         <Loader />
@@ -78,7 +77,10 @@ const ProductListScreen = () => {
                   <td>{product.brand}</td>
                   <td>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                      <Button variant="outline-warning" className="btn-sm mx-2 " >
+                      <Button
+                        variant="outline-warning"
+                        className="btn-sm mx-2 "
+                      >
                         <FaEdit />
                       </Button>
                     </LinkContainer>
